@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Rich Golden Ochre Metallic Gradient matching clinic aesthetic -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C28F42" />
+      <stop offset="50%" stop-color="#B68337" />
+      <stop offset="100%" stop-color="#9A6B25" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circular Ring Frame -->
+  <circle 
+    cx="250" 
+    cy="250" 
+    r="222" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round"
+  />
+
+  <!-- Heart Shape -->
+  <path 
+    d="M 250 178 
+       C 225 130, 160 115, 126 155 
+       C 95 192, 98 245, 138 290 
+       L 250 402 
+       L 362 290 
+       C 402 245, 405 192, 374 155 
+       C 340 115, 275 130, 250 178 Z" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+
+  <!-- Center Anatomical Molar Tooth Outline -->
+  <path 
+    d="M 250 222 
+       C 238 206, 218 198, 208 210 
+       C 196 224, 196 244, 203 260 
+       C 207 272, 212 294, 218 312 
+       C 221 320, 232 320, 235 312 
+       C 240 295, 243 274, 250 266 
+       C 257 274, 260 295, 265 312 
+       C 268 320, 279 320, 282 312 
+       C 288 294, 293 272, 297 260 
+       C 304 244, 304 224, 292 210 
+       C 282 198, 262 206, 250 222 Z" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+
+  <!-- Capital Letter 'D' on the right side of the emblem -->
+  <path 
+    d="M 318 196 L 318 402" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round"
+  />
+  <path 
+    d="M 318 196 
+       C 382 196, 434 242, 434 299 
+       C 434 356, 382 402, 318 402" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+
+  <!-- Graceful Left Sweeping Ribbon & Intertwined Teardrop Loop -->
+  <path 
+    d="M 34 218 
+       C 75 204, 130 205, 185 234 
+       C 150 262, 135 298, 140 338 
+       C 144 372, 168 396, 188 375 
+       C 204 358, 206 322, 192 290 
+       C 178 260, 160 236, 138 214" 
+    fill="none" 
+    stroke="url(#gold-grad)" 
+    stroke-width="16" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+  />
+</svg>

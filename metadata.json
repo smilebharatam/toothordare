@@ -1,0 +1,8 @@
+{
+  "name": "Tooth or Dare Dental Clinic",
+  "description": "Tooth or Dare Dental Clinic – Dental, Aesthetics, Restorative & Endodontics. Premier boutique dental sanctuary in Chennai offering world-class smile design, painless treatments, and seamless WhatsApp appointment booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

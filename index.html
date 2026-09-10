@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooth or Dare Dental Clinic | Dental, Aesthetics, Restorative & Endodontics</title>
+    <meta name="description" content="Tooth or Dare Dental Clinic – Premier boutique dental sanctuary in Chennai. Specializing in Aesthetics, Smile Designing, Painless Endodontics & Restorative Implants. Book easily via WhatsApp at 9566644007.">
+    <meta property="og:title" content="Tooth or Dare Dental Clinic | Dental, Aesthetics, Restorative & Endodontics">
+    <meta property="og:description" content="Experience world-class, anxiety-free dental care in our warm architectural sanctuary. Painless treatments, personalized smile designs, and instant WhatsApp booking.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Palette directly inspired by Tooth or Dare clinic's terracotta rose interior
+                        terracotta: {
+                            50: '#FDF8F7',
+                            100: '#FBF2EF',
+                            200: '#F5E4E0',
+                            300: '#EBCAC3',
+                            400: '#DF9F97',
+                            500: '#C67D77', // Signature clinic wall tone
+                            600: '#B0645E',
+                            700: '#944C47',
+                            800: '#7B3B36',
+                            900: '#4D2421',
+                            950: '#2D1513',
+                        },
+                        amberGlow: {
+                            100: '#FFF6EB',
+                            200: '#FFECCF',
+                            300: '#FFDBA3',
+                            400: '#F6B767',
+                            500: '#E89838',
+                        },
+                        sand: {
+                            50: '#FCFBF9',
+                            100: '#F8F5F0',
+                            200: '#F0E9DF',
+                            300: '#E4DACB',
+                            400: '#C7B7A1',
+                        },
+                        espresso: '#231615',
+                        warmDark: '#33201F',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 35px -5px rgba(198, 125, 119, 0.35)',
+                        'cove': '0 10px 40px -10px rgba(77, 36, 33, 0.12)',
+                        'warm': '0 20px 45px -15px rgba(176, 100, 94, 0.22)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom Aesthetics CSS -->
+    <style>
+        [x-cloak] { display: none !important; }
+        
+        /* Glassmorphism nav with terracotta tint */
+        .clinic-glass {
+            background: rgba(253, 248, 247, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(198, 125, 119, 0.15);
+        }
+
+        /* Ambient Cove Lighting Glow from the reference ceiling */
+        .cove-radial-glow {
+            background: radial-gradient(circle at 50% 30%, rgba(255, 236, 207, 0.75) 0%, rgba(251, 242, 239, 0.4) 45%, transparent 70%);
+        }
+
+        .terracotta-gradient {
+            background: linear-gradient(135deg, #C67D77 0%, #B0645E 50%, #944C47 100%);
+        }
+
+        .card-ambient-glow {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FBF4F1 100%);
+        }
+
+        /* Subtle spiral curve decoration */
+        .spiral-contour {
+            border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+        }
+
+        /* Comparison Slider */
+        .comparison-container {
+            position: relative;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        /* Smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F5F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DF9F97;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C67D77;
+        }
+    </style>
+</head>
+<body 
+    class="font-sans bg-sand-50 text-espresso selection:bg-terracotta-200 selection:text-terracotta-900 antialiased overflow-x-hidden" 
+    x-data="clinicApp()"
+    x-init="initApp()"
+>
+
+    <!-- Top Announcement Bar / Quick Emergency & Working Hours -->
+    <header class="bg-terracotta-900 text-terracotta-100 text-xs py-2 px-4 border-b border-terracotta-800/50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2 tracking-wide font-medium">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Open Today • Mon – Sat: 9:30 AM – 1:30 PM & 4:30 PM – 8:30 PM</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-terracotta-300"></i>
+                    <span>Kelambakkam, OMR (Chennai)</span>
+                </a>
+                <span class="text-terracotta-700">|</span>
+                <a href="tel:9566644007" class="hover:text-white font-semibold transition-colors flex items-center gap-1">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-terracotta-300"></i>
+                    <span>+91 95666 44007</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav 
+        id="main-navbar"
+        class="sticky top-0 z-40 transition-all duration-300"
+        :class="isScrolled ? 'clinic-glass py-3.5 shadow-sm' : 'bg-sand-50/90 backdrop-blur-md py-5 border-b border-terracotta-100'"
+    >
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Brand Logo with official clinic circular emblem -->
+            <a href="#home" class="flex items-center gap-3.5 group" id="nav-brand-logo">
+                <div class="w-12 h-12 rounded-full p-1 bg-white border border-terracotta-200/90 shadow-md shadow-terracotta-500/15 group-hover:shadow-terracotta-500/30 group-hover:border-terracotta-400 transition-all transform group-hover:scale-105 flex items-center justify-center shrink-0">
+                    <img 
+                        src="/images/clinic_logo.svg" 
+                        alt="Tooth or Dare Official Clinic Logo" 
+                        class="w-full h-full object-contain"
+                        width="46"
+                        height="46"
+                    />
+                </div>
+                <div class="flex flex-col justify-center w-[210px] sm:w-[245px] select-none">
+                    <!-- Exact Brand Lockup with tight, authentic spacing between TOOTH, OR, and DARE -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" class="w-full h-auto" aria-label="Tooth or Dare Dental Clinic">
+                      <defs>
+                        <style>
+                          .wm-nav-brand { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 900; fill: #540D1B; }
+                          .wm-nav-gold { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #B88538; }
+                          .wm-nav-sub { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #B88538; font-size: 19px; }
+                        </style>
+                      </defs>
+
+                      <!-- Row 1: Brand Title (Span: 95 to 585, Center Axis at X=340) -->
+                      <!-- Left: TOOTH (Span: 95 to 298) -->
+                      <text x="95" y="58" class="wm-nav-brand" font-size="48" letter-spacing="-0.02em">T</text>
+                      
+                      <!-- Infinity OO Loop -->
+                      <path d="M 185 41 C 166 23, 140 23, 140 41 C 140 59, 166 59, 185 41 C 204 23, 230 23, 230 41 C 230 59, 204 59, 185 41 Z" 
+                            fill="none" 
+                            stroke="#540D1B" 
+                            stroke-width="9.5" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" />
+                            
+                      <!-- TH -->
+                      <text x="242" y="58" class="wm-nav-brand" font-size="48" letter-spacing="-0.01em">TH</text>
+
+                      <!-- Center: OR badge (Span: 320 to 360, Center at X=340) -->
+                      <!-- Distance to TOOTH: exactly 22px; Distance to DARE: exactly 22px -->
+                      <g transform="translate(340, 26)">
+                        <line x1="-20" y1="2" x2="20" y2="2" stroke="#B88538" stroke-width="2.6" stroke-linecap="round" />
+                        <text x="0" y="24" class="wm-nav-gold" font-size="21" text-anchor="middle" letter-spacing="0.04em">OR</text>
+                        <line x1="-20" y1="36" x2="20" y2="36" stroke="#B88538" stroke-width="2.6" stroke-linecap="round" />
+                      </g>
+
+                      <!-- Right: DARE (Span: 382 to 585) -->
+                      <g transform="translate(382, 0)">
+                        <!-- Stencil D -->
+                        <line x1="4" y1="22" x2="4" y2="58" stroke="#540D1B" stroke-width="8.5" stroke-linecap="square" />
+                        <path d="M 10 22 C 34 22, 48 29, 48 40 C 48 51, 34 58, 10 58" stroke="#540D1B" stroke-width="8.5" stroke-linecap="round" fill="none" />
+                        <text x="56" y="58" class="wm-nav-brand" font-size="48" letter-spacing="0.14em">ARE</text>
+                      </g>
+
+                      <!-- Row 2: Symmetric Golden Rules & Centered Molar Outline (Center Axis at X=340) -->
+                      <g transform="translate(340, 85)">
+                        <line x1="-205" y1="0" x2="-25" y2="0" stroke="#B88538" stroke-width="2.2" stroke-linecap="round" />
+                        <path d="M 0 -8 C -6 -15, -14 -11, -14 2 C -14 10, -10 16, -6 23 C -4 27, -1 27, 0 20 C 1 27, 4 27, 6 23 C 10 16, 14 10, 14 2 C 14 -11, 6 -15, 0 -8 Z" 
+                              fill="none" 
+                              stroke="#540D1B" 
+                              stroke-width="2.5" 
+                              stroke-linejoin="round" 
+                              stroke-linecap="round" 
+                              transform="scale(0.9) translate(0, -6)" />
+                        <line x1="25" y1="0" x2="205" y2="0" stroke="#B88538" stroke-width="2.2" stroke-linecap="round" />
+                      </g>
+
+                      <!-- Row 3: Subtitle spanning from X=50 to X=630 (Center Axis at X=340) -->
+                      <text x="340" y="126" class="wm-nav-sub" text-anchor="middle" textLength="580" lengthAdjust="spacing">DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS</text>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-espresso/80">
+                <a href="#services" class="hover:text-terracotta-700 transition-colors py-1 relative group">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experience" class="hover:text-terracotta-700 transition-colors py-1 relative group">
+                    The Sanctuary
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#smile-makeover" class="hover:text-terracotta-700 transition-colors py-1 relative group">
+                    Smile Gallery
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#quiz" class="hover:text-terracotta-700 transition-colors py-1 relative group">
+                    Virtual Assessment
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#location" class="hover:text-terracotta-700 transition-colors py-1 relative group">
+                    Location
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <!-- Header Action Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a 
+                    href="https://www.instagram.com/tooth.or_dare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 rounded-full border border-terracotta-200 bg-white/80 hover:bg-terracotta-100 hover:border-terracotta-400 flex items-center justify-center transition-all shadow-xs hover:scale-105 group"
+                    title="Instagram @tooth.or_dare"
+                    id="nav-insta-icon"
+                    aria-label="Tooth or Dare Instagram Profile"
+                >
+                    <img 
+                        src="/images/instagram.svg" 
+                        alt="Instagram @tooth.or_dare" 
+                        class="w-5 h-5 rounded-[5px] object-contain transition-transform group-hover:scale-110 pointer-events-none"
+                        width="20"
+                        height="20"
+                    />
+                </a>
+
+                <button 
+                    @click="openBookingModal('General Dental Consultation')" 
+                    id="nav-book-btn"
+                    class="terracotta-gradient text-white px-5 py-2.5 rounded-full text-xs uppercase font-bold tracking-widest flex items-center gap-2 shadow-md shadow-terracotta-500/25 hover:shadow-lg hover:shadow-terracotta-500/40 hover:scale-[1.02] transition-all"
+                >
+                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                    <span>Book on WhatsApp</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button 
+                id="mobile-menu-toggle"
+                @click="mobileMenuOpen = !mobileMenuOpen" 
+                class="lg:hidden p-2 rounded-xl text-espresso hover:bg-terracotta-100 transition-colors"
+                aria-label="Toggle navigation menu"
+            >
+                <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen"></i>
+                <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" x-cloak></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div 
+            class="lg:hidden bg-sand-50/98 backdrop-blur-xl border-b border-terracotta-200 px-6 py-6 shadow-xl"
+            x-show="mobileMenuOpen"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            x-cloak
+        >
+            <div class="flex flex-col gap-4 font-medium text-espresso">
+                <a href="#services" @click="mobileMenuOpen = false" class="py-2 border-b border-terracotta-100 flex items-center justify-between">
+                    <span>Clinical Specialties</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-terracotta-400"></i>
+                </a>
+                <a href="#experience" @click="mobileMenuOpen = false" class="py-2 border-b border-terracotta-100 flex items-center justify-between">
+                    <span>The Boutique Sanctuary</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-terracotta-400"></i>
+                </a>
+                <a href="#smile-makeover" @click="mobileMenuOpen = false" class="py-2 border-b border-terracotta-100 flex items-center justify-between">
+                    <span>Smile Transformations</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-terracotta-400"></i>
+                </a>
+                <a href="#booking-section" @click="mobileMenuOpen = false" class="py-2 border-b border-terracotta-100 flex items-center justify-between">
+                    <span>WhatsApp Appointment Booking</span>
+                    <i data-lucide="calendar" class="w-4 h-4 text-terracotta-500"></i>
+                </a>
+                <a href="#location" @click="mobileMenuOpen = false" class="py-2 border-b border-terracotta-100 flex items-center justify-between">
+                    <span>Location & Hours</span>
+                    <i data-lucide="map-pin" class="w-4 h-4 text-terracotta-400"></i>
+                </a>
+
+                <div class="pt-4 flex flex-col gap-3">
+                    <a 
+                        href="https://wa.me/919566644007?text=Hello%20Tooth%20or%20Dare%20Dental%20Clinic!%20I%20would%20like%20to%20book%20an%20appointment." 
+                        target="_blank"
+                        class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20"
+                    >
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>WhatsApp: 9566644007</span>
+                    </a>
+                    <a 
+                        href="https://www.instagram.com/tooth.or_dare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                        target="_blank" 
+                        class="w-full border border-terracotta-300 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-terracotta-800 bg-white/50"
+                    >
+                        <img src="/images/instagram.svg" alt="Instagram" class="w-5 h-5 rounded-[4px] object-contain" width="20" height="20" />
+                        <span>Instagram @tooth.or_dare</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Body -->
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+        <section id="home" class="relative pt-8 pb-20 md:py-24 overflow-hidden cove-radial-glow">
+            <!-- Warm Cove Ambient Background Lighting Effects -->
+            <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-terracotta-200/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+            <div class="absolute top-20 left-10 w-[450px] h-[450px] bg-amberGlow-200/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Hero Content (7 Cols) -->
+                    <div class="lg:col-span-7 space-y-7" data-aos="fade-up" data-aos-duration="900">
+                        
+                        <!-- Aesthetic Boutique Badge -->
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-terracotta-100/80 border border-terracotta-300/60 shadow-sm text-terracotta-800 text-xs font-semibold tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-terracotta-500 animate-ping"></span>
+                            <span class="font-serif italic text-sm">Boutique Sanctuary</span>
+                            <span class="text-terracotta-400">•</span>
+                            <span>Kelambakkam OMR, Chennai</span>
+                        </div>
+
+                        <!-- Main Headings with Luxury Typography -->
+                        <div class="space-y-3">
+                            <p class="text-xs font-bold tracking-[0.28em] uppercase text-terracotta-600">
+                                DENTAL • AESTHETICS • RESTORATIVE • ENDODONTICS
+                            </p>
+                            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-espresso font-bold leading-[1.12] tracking-tight">
+                                Where Precision Science Meets <span class="italic font-normal text-terracotta-600 underline decoration-terracotta-300 decoration-wavy decoration-1 underline-offset-8">Aesthetic</span> Tranquility.
+                            </h1>
+                        </div>
+
+                        <!-- Value Proposition -->
+                        <p class="text-base sm:text-lg text-espresso/75 leading-relaxed max-w-xl font-normal">
+                            Step into a calming, terracotta-hued architectural haven engineered to dissolve dental anxiety. From microscopic painless root canals to bespoke porcelain smile designing, we deliver compassionate, world-class oral artistry.
+                        </p>
+
+                        <!-- Key Pillars Pills -->
+                        <div class="flex flex-wrap gap-2.5 pt-1">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-white/80 border border-terracotta-200/80 text-xs font-medium text-espresso flex items-center gap-1.5 shadow-sm">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+                                Digital Smile Designing
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-white/80 border border-terracotta-200/80 text-xs font-medium text-espresso flex items-center gap-1.5 shadow-sm">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-terracotta-600"></i>
+                                Single-Visit Painless Endo
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-white/80 border border-terracotta-200/80 text-xs font-medium text-espresso flex items-center gap-1.5 shadow-sm">
+                                <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                Zero-Anxiety Sanctuary
+                            </span>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div class="flex flex-wrap items-center gap-4 pt-3">
+                            <a 
+                                href="#booking-section" 
+                                id="hero-book-btn"
+                                class="terracotta-gradient text-white px-8 py-4 rounded-full font-bold text-sm tracking-wide flex items-center gap-3 shadow-warm hover:shadow-glow hover:scale-[1.02] transition-all"
+                            >
+                                <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                                <span>Book WhatsApp Appointment</span>
+                            </a>
+                            
+                            <a 
+                                href="https://wa.me/919566644007?text=Hello%20Tooth%20or%20Dare!%20I%20would%20like%20to%20consult%20regarding%20my%20dental%20concern."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                id="hero-whatsapp-direct"
+                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-full font-semibold text-sm flex items-center gap-2.5 shadow-md shadow-emerald-600/20 hover:scale-[1.02] transition-all"
+                            >
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                                <span>Chat: 9566644007</span>
+                            </a>
+                        </div>
+
+                        <!-- Social Proof Bar -->
+                        <div class="pt-6 border-t border-terracotta-200/70 flex flex-wrap items-center gap-6 sm:gap-10">
+                            <div class="flex items-center gap-3">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-terracotta-300 border-2 border-white flex items-center justify-center text-[10px] font-bold text-terracotta-900">SG</div>
+                                    <div class="w-8 h-8 rounded-full bg-amberGlow-300 border-2 border-white flex items-center justify-center text-[10px] font-bold text-amber-900">AK</div>
+                                    <div class="w-8 h-8 rounded-full bg-terracotta-400 border-2 border-white flex items-center justify-center text-[10px] font-bold text-white">MR</div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center text-amber-500 text-xs">
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                    </div>
+                                    <p class="text-xs font-bold text-espresso">5.0 Star Rated Experience</p>
+                                </div>
+                            </div>
+
+                            <div class="h-8 w-px bg-terracotta-200 hidden sm:block"></div>
+
+                            <a href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 group">
+                                <div class="w-8 h-8 rounded-full bg-terracotta-100 flex items-center justify-center text-terracotta-600 group-hover:bg-terracotta-500 group-hover:text-white transition-all">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-bold text-espresso group-hover:text-terracotta-700 transition-colors">Verified On Google Maps</p>
+                                    <p class="text-espresso/60 text-[11px]">View Reviews & Route &rarr;</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Hero Visual Card (5 Cols) - Featuring the Reference Lounge Aesthetic -->
+                    <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-duration="1000">
+                        
+                        <!-- Atmospheric architectural card framing the real clinic environment -->
+                        <div class="relative bg-gradient-to-br from-terracotta-500 to-terracotta-700 p-2.5 sm:p-3.5 rounded-[2.5rem] shadow-warm text-white">
+                            
+                            <!-- The Lounge Presentation Frame -->
+                            <div class="relative rounded-[2.2rem] overflow-hidden bg-terracotta-900 aspect-[4/3] sm:aspect-[4/3]">
+                                
+                                <!-- Background Image Only: Curated Tooth or Dare Sanctuary Reception Lounge -->
+                                <img 
+                                    id="hero-lounge-image"
+                                    src="/images/clinic_lounge.svg" 
+                                    onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=85&w=1200'"
+                                    alt="Tooth or Dare Dental Clinic Sanctuary Reception Lounge" 
+                                    class="w-full h-full object-cover mix-blend-luminosity opacity-40 filter contrast-125"
+                                    referrerPolicy="no-referrer"
+                                />
+
+                                <!-- Warm Terracotta Color Grading Overlay matching the exact uploaded interior -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-terracotta-950 via-terracotta-800/80 to-terracotta-600/40 mix-blend-multiply"></div>
+
+                                <!-- Ambient Circular Ceiling Cove Glow simulation -->
+                                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-48 h-20 rounded-full border border-amberGlow-300/40 bg-amberGlow-200/10 blur-[2px]"></div>
+                                <div class="absolute top-6 left-1/2 -translate-x-1/2 w-28 h-10 rounded-full border border-amberGlow-300/60 shadow-[0_0_20px_rgba(255,219,163,0.5)]"></div>
+
+                                <!-- Wall Signage Emblem & Brand Lockup centered over background -->
+                                <div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center">
+                                    <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center mb-3 shadow-lg">
+                                        <img 
+                                            src="/images/clinic_logo.svg" 
+                                            alt="Tooth or Dare Official Clinic Logo" 
+                                            class="w-full h-full object-contain filter brightness-125"
+                                            width="56"
+                                            height="56"
+                                        />
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center w-full max-w-[270px] select-none">
+                                        <!-- Exact Brand Lockup with tight 22px spacing -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" class="w-full h-auto" aria-label="Tooth or Dare Dental Clinic">
+                                          <defs>
+                                            <style>
+                                              .wm-hero-brand { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 900; fill: #FFFFFF; }
+                                              .wm-hero-gold { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; }
+                                              .wm-hero-sub { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; font-size: 19px; }
+                                            </style>
+                                          </defs>
+                                          <!-- Row 1: Brand Title (Span: 95 to 585, Center Axis at X=340) -->
+                                          <text x="95" y="58" class="wm-hero-brand" font-size="48" letter-spacing="-0.02em">T</text>
+                                          <path d="M 185 41 C 166 23, 140 23, 140 41 C 140 59, 166 59, 185 41 C 204 23, 230 23, 230 41 C 230 59, 204 59, 185 41 Z" fill="none" stroke="#FFFFFF" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                                          <text x="242" y="58" class="wm-hero-brand" font-size="48" letter-spacing="-0.01em">TH</text>
+                                          <!-- Center: OR badge with tight 22px gap -->
+                                          <g transform="translate(340, 26)">
+                                            <line x1="-20" y1="2" x2="20" y2="2" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                                            <text x="0" y="24" class="wm-hero-gold" font-size="21" text-anchor="middle" letter-spacing="0.04em">OR</text>
+                                            <line x1="-20" y1="36" x2="20" y2="36" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                                          </g>
+                                          <!-- Right: DARE with tight 22px gap -->
+                                          <g transform="translate(382, 0)">
+                                            <line x1="4" y1="22" x2="4" y2="58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="square" />
+                                            <path d="M 10 22 C 34 22, 48 29, 48 40 C 48 51, 34 58, 10 58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" fill="none" />
+                                            <text x="56" y="58" class="wm-hero-brand" font-size="48" letter-spacing="0.14em">ARE</text>
+                                          </g>
+                                          <!-- Row 2: Symmetric Golden Rules & Centered Molar Outline -->
+                                          <g transform="translate(340, 85)">
+                                            <line x1="-205" y1="0" x2="-25" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                                            <path d="M 0 -8 C -6 -15, -14 -11, -14 2 C -14 10, -10 16, -6 23 C -4 27, -1 27, 0 20 C 1 27, 4 27, 6 23 C 10 16, 14 10, 14 2 C 14 -11, 6 -15, 0 -8 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" transform="scale(0.9) translate(0, -6)" />
+                                            <line x1="25" y1="0" x2="205" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                                          </g>
+                                          <!-- Row 3: Subtitle from X=50 to X=630 -->
+                                          <text x="340" y="126" class="wm-hero-sub" text-anchor="middle" textLength="580" lengthAdjust="spacing">DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS</text>
+                                        </svg>
+                                    </div>
+                                    <span class="mt-4 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-[11px] font-medium text-amberGlow-100 border border-white/15">
+                                        Kelambakkam OMR • Chennai
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Highlights Strip on Card -->
+                            <div class="p-4 sm:p-5 grid grid-cols-3 gap-2 text-center text-xs">
+                                <div class="bg-terracotta-800/60 rounded-xl p-2.5 backdrop-blur-sm border border-terracotta-600/30">
+                                    <span class="block text-amberGlow-300 font-serif text-lg font-bold">100%</span>
+                                    <span class="text-terracotta-200 text-[10px] tracking-wide uppercase">Painless Care</span>
+                                </div>
+                                <div class="bg-terracotta-800/60 rounded-xl p-2.5 backdrop-blur-sm border border-terracotta-600/30">
+                                    <span class="block text-amberGlow-300 font-serif text-lg font-bold">Micro</span>
+                                    <span class="text-terracotta-200 text-[10px] tracking-wide uppercase">Precision</span>
+                                </div>
+                                <div class="bg-terracotta-800/60 rounded-xl p-2.5 backdrop-blur-sm border border-terracotta-600/30">
+                                    <span class="block text-amberGlow-300 font-serif text-lg font-bold">Spa</span>
+                                    <span class="text-terracotta-200 text-[10px] tracking-wide uppercase">Comfort</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Floating Micro-Card: Instant WhatsApp Concierge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-warm border border-terracotta-200 max-w-[260px] hidden sm:flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-espresso">WhatsApp Booking</p>
+                                <p class="text-[11px] text-espresso/60">Instant slot confirmation at <span class="text-emerald-700 font-semibold">9566644007</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= CLINICAL SPECIALTIES (THE 4 PILLARS) ================= -->
+        <section id="services" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-600 block mb-2">
+                        Comprehensive Oral Excellence
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-espresso">
+                        Our Four Pillars of <span class="italic text-terracotta-600 font-normal">Specialized</span> Care
+                    </h2>
+                    <p class="text-espresso/70 mt-4 text-base leading-relaxed">
+                        Every procedure is executed with microscopic precision, minimal tissue disruption, and an unwavering commitment to your long-term smile vitality.
+                    </p>
+                </div>
+
+                <!-- 4 Core Pillars Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    
+                    <!-- Pillar 1: Aesthetics & Smile Design -->
+                    <div 
+                        class="p-8 rounded-[2rem] bg-sand-50 border border-terracotta-200/80 hover:border-terracotta-400 hover:shadow-warm transition-all duration-300 flex flex-col justify-between group"
+                        data-aos="fade-up" 
+                        data-aos-delay="100"
+                    >
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-terracotta-500 group-hover:text-white transition-all">
+                                <i data-lucide="sparkles" class="w-7 h-7"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-600">Pillar 01</span>
+                            <h3 class="font-serif text-2xl font-bold text-espresso mt-1 mb-3">
+                                Aesthetics & Smile Design
+                            </h3>
+                            <p class="text-sm text-espresso/70 leading-relaxed mb-6">
+                                Bespoke smile makeovers engineered to harmonize with your unique facial contours.
+                            </p>
+                            <ul class="text-xs text-espresso/80 space-y-2.5 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Handcrafted Porcelain Veneers</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Laser Teeth Whitening in 45 Mins</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Composite Bonding & Diastema Closure</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Cosmetic Gum Contouring</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button 
+                            @click="selectServiceAndBook('Aesthetics & Smile Design')" 
+                            class="w-full py-3 px-4 rounded-xl bg-white border border-terracotta-200 text-terracotta-800 text-xs font-bold uppercase tracking-wider hover:bg-terracotta-500 hover:text-white hover:border-terracotta-500 transition-all flex items-center justify-center gap-2"
+                        >
+                            <span>Book Aesthetic Consult</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pillar 2: Restorative Dentistry -->
+                    <div 
+                        class="p-8 rounded-[2rem] bg-sand-50 border border-terracotta-200/80 hover:border-terracotta-400 hover:shadow-warm transition-all duration-300 flex flex-col justify-between group"
+                        data-aos="fade-up" 
+                        data-aos-delay="200"
+                    >
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amberGlow-100 text-amber-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                <i data-lucide="gem" class="w-7 h-7"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-700">Pillar 02</span>
+                            <h3 class="font-serif text-2xl font-bold text-espresso mt-1 mb-3">
+                                Restorative Dentistry
+                            </h3>
+                            <p class="text-sm text-espresso/70 leading-relaxed mb-6">
+                                Rebuilding tooth strength and chewing biomechanics with natural-looking ceramics.
+                            </p>
+                            <ul class="text-xs text-espresso/80 space-y-2.5 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Zirconia & All-Ceramic Crowns</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Precision Inlays & Onlays</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Full Mouth Rehabilitation</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Biomimetic Tooth Reconstruction</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button 
+                            @click="selectServiceAndBook('Restorative Dentistry & Crowns')" 
+                            class="w-full py-3 px-4 rounded-xl bg-white border border-terracotta-200 text-terracotta-800 text-xs font-bold uppercase tracking-wider hover:bg-terracotta-500 hover:text-white hover:border-terracotta-500 transition-all flex items-center justify-center gap-2"
+                        >
+                            <span>Book Restorative Care</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pillar 3: Endodontics (Painless Root Canal) -->
+                    <div 
+                        class="p-8 rounded-[2rem] bg-sand-50 border border-terracotta-200/80 hover:border-terracotta-400 hover:shadow-warm transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                        data-aos="fade-up" 
+                        data-aos-delay="300"
+                    >
+                        <div class="absolute top-4 right-4 bg-terracotta-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Painless
+                        </div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-terracotta-500 group-hover:text-white transition-all">
+                                <i data-lucide="activity" class="w-7 h-7"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-600">Pillar 03</span>
+                            <h3 class="font-serif text-2xl font-bold text-espresso mt-1 mb-3">
+                                Advanced Endodontics
+                            </h3>
+                            <p class="text-sm text-espresso/70 leading-relaxed mb-6">
+                                Saving your natural tooth with painless, single-visit rotary micro-endodontics.
+                            </p>
+                            <ul class="text-xs text-espresso/80 space-y-2.5 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Single-Sitting Painless Root Canal</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Rotary & Apex Locator Precision</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Endodontic Re-treatment & Repair</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-terracotta-600 shrink-0"></i>
+                                    <span>Pulp Capping & Vital Pulp Therapy</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button 
+                            @click="selectServiceAndBook('Endodontics & Painless Root Canal')" 
+                            class="w-full py-3 px-4 rounded-xl bg-white border border-terracotta-200 text-terracotta-800 text-xs font-bold uppercase tracking-wider hover:bg-terracotta-500 hover:text-white hover:border-terracotta-500 transition-all flex items-center justify-center gap-2"
+                        >
+                            <span>Book Painless Endo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pillar 4: Dental Implants & Aligners -->
+                    <div 
+                        class="p-8 rounded-[2rem] bg-sand-50 border border-terracotta-200/80 hover:border-terracotta-400 hover:shadow-warm transition-all duration-300 flex flex-col justify-between group"
+                        data-aos="fade-up" 
+                        data-aos-delay="400"
+                    >
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amberGlow-100 text-amber-800 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                <i data-lucide="shield-plus" class="w-7 h-7"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-700">Pillar 04</span>
+                            <h3 class="font-serif text-2xl font-bold text-espresso mt-1 mb-3">
+                                Implants & Aligners
+                            </h3>
+                            <p class="text-sm text-espresso/70 leading-relaxed mb-6">
+                                Permanent titanium tooth replacements and discreet orthodontic realignment.
+                            </p>
+                            <ul class="text-xs text-espresso/80 space-y-2.5 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Digitally Guided Dental Implants</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Invisible Clear Teeth Aligners</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Ultrasonic Scaling & Air Polish</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                                    <span>Same-Day Emergency Tooth Relief</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button 
+                            @click="selectServiceAndBook('Dental Implants & Aligners')" 
+                            class="w-full py-3 px-4 rounded-xl bg-white border border-terracotta-200 text-terracotta-800 text-xs font-bold uppercase tracking-wider hover:bg-terracotta-500 hover:text-white hover:border-terracotta-500 transition-all flex items-center justify-center gap-2"
+                        >
+                            <span>Book Implant / Aligner</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= THE ARCHITECTURAL SANCTUARY EXPERIENCE ================= -->
+        <section id="experience" class="py-24 bg-terracotta-50 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left: Photographic & Architectural Narrative -->
+                    <div class="lg:col-span-6 space-y-8" data-aos="fade-right">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-600 block mb-2">
+                                Architectural Neuro-Design
+                            </span>
+                            <h2 class="font-serif text-4xl sm:text-5xl font-bold text-espresso leading-tight">
+                                Designed to Lower Cortisol & Abolish <span class="italic text-terracotta-600 font-normal">Dental Anxiety</span>.
+                            </h2>
+                        </div>
+
+                        <p class="text-espresso/75 leading-relaxed text-base">
+                            Notice the warm terracotta clay walls, sweeping curved boucle sofa, and concentric cove lighting from our clinic lounge? These aren't just decorative choices. They are deliberate neuro-architectural elements designed to make you feel as relaxed as you would in a boutique wellness retreat.
+                        </p>
+
+                        <!-- Feature Breakdown Items -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-terracotta-100 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="sun" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif font-bold text-lg text-espresso">Warm 2700K Cove Lighting</h3>
+                                    <p class="text-xs text-espresso/70 mt-0.5 leading-relaxed">No harsh fluorescent hospital glare. Our ceiling spiral radiates gentle ambient warmth that keeps your eyes and mind at peace.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-terracotta-100 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="wind" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif font-bold text-lg text-espresso">Zero "Clinic Smell" Aromatherapy</h3>
+                                    <p class="text-xs text-espresso/70 mt-0.5 leading-relaxed">We use hospital-grade autoclave sterilization coupled with gentle, soothing therapeutic botanical diffusers to eliminate chemical odours.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-terracotta-100 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="armchair" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif font-bold text-lg text-espresso">Ergonomic Sculptural Lounges</h3>
+                                    <p class="text-xs text-espresso/70 mt-0.5 leading-relaxed">Relax on soft curved boucle seating with calming acoustic soundscapes while our clinicians prepare your tailored treatment suite.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Instagram CTA -->
+                        <div class="pt-2">
+                            <a 
+                                href="https://www.instagram.com/tooth.or_dare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-terracotta-500/20"
+                            >
+                                <img src="/images/instagram.svg" alt="Instagram" class="w-4 h-4 rounded-[3px] object-contain" width="16" height="16" />
+                                <span>Follow Clinic Life on Instagram @tooth.or_dare</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Visual Collage with interactive ambiance toggle -->
+                    <div class="lg:col-span-6" data-aos="fade-left">
+                        <div class="relative bg-terracotta-900 rounded-[2.5rem] p-4 text-white overflow-hidden shadow-2xl">
+                            
+                            <!-- Ceiling & Reception Showcase -->
+                            <div class="relative rounded-[2rem] overflow-hidden aspect-[4/3]">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=900" 
+                                    alt="Modern Dental Operatory" 
+                                    class="w-full h-full object-cover mix-blend-luminosity opacity-40"
+                                    referrerPolicy="no-referrer"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-terracotta-950 via-terracotta-800/60 to-transparent"></div>
+
+                                <!-- Overlay quote -->
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
+                                        <p class="font-serif italic text-lg sm:text-xl text-amberGlow-100">
+                                            "A dental clinic where you genuinely look forward to your visit. The calming terracotta interiors and painless touch change everything."
+                                        </p>
+                                        <div class="mt-3 flex items-center justify-between text-xs text-terracotta-200">
+                                            <span class="font-bold text-white">— Verified Patient Review</span>
+                                            <span>Chennai • 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Clinic Statistics Badge -->
+                            <div class="grid grid-cols-3 gap-3 mt-4 text-center">
+                                <div class="p-3 bg-terracotta-800/70 rounded-xl">
+                                    <p class="font-serif text-2xl font-bold text-amberGlow-300">100%</p>
+                                    <p class="text-[10px] text-terracotta-200 uppercase tracking-wider">Sterile Care</p>
+                                </div>
+                                <div class="p-3 bg-terracotta-800/70 rounded-xl">
+                                    <p class="font-serif text-2xl font-bold text-amberGlow-300">45 Min</p>
+                                    <p class="text-[10px] text-terracotta-200 uppercase tracking-wider">Fast Whitening</p>
+                                </div>
+                                <div class="p-3 bg-terracotta-800/70 rounded-xl">
+                                    <p class="font-serif text-2xl font-bold text-amberGlow-300">Zero</p>
+                                    <p class="text-[10px] text-terracotta-200 uppercase tracking-wider">Waiting Friction</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= INTERACTIVE SMILE TRANSFORMATION GALLERY ================= -->
+        <section id="smile-makeover" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-600 block mb-2">
+                        Artistry In Action
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-espresso">
+                        Real Results, <span class="italic text-terracotta-600 font-normal">Confident</span> Smiles.
+                    </h2>
+                    <p class="text-espresso/70 mt-3 text-sm">
+                        Explore how our restorative and cosmetic procedures restore life, alignment, and radiance.
+                    </p>
+                </div>
+
+                <!-- Interactive Case Studies Tabs -->
+                <div class="max-w-4xl mx-auto bg-sand-50 rounded-[2.5rem] p-6 sm:p-10 border border-terracotta-200/70 shadow-sm" data-aos="zoom-in">
+                    
+                    <!-- Case Selector Pills -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-8">
+                        <button 
+                            @click="activeGalleryCase = 'whitening'"
+                            class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all"
+                            :class="activeGalleryCase === 'whitening' ? 'bg-terracotta-500 text-white shadow-md' : 'bg-white text-espresso/70 hover:bg-terracotta-100'"
+                        >
+                            Laser Teeth Whitening
+                        </button>
+                        <button 
+                            @click="activeGalleryCase = 'veneers'"
+                            class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all"
+                            :class="activeGalleryCase === 'veneers' ? 'bg-terracotta-500 text-white shadow-md' : 'bg-white text-espresso/70 hover:bg-terracotta-100'"
+                        >
+                            Porcelain Veneers
+                        </button>
+                        <button 
+                            @click="activeGalleryCase = 'aligners'"
+                            class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all"
+                            :class="activeGalleryCase === 'aligners' ? 'bg-terracotta-500 text-white shadow-md' : 'bg-white text-espresso/70 hover:bg-terracotta-100'"
+                        >
+                            Clear Aligners
+                        </button>
+                    </div>
+
+                    <!-- Case Details Display -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        
+                        <!-- Visual Image Card with Before/After Slider toggle -->
+                        <div class="space-y-4">
+                            <!-- Image Display Window -->
+                            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-terracotta-950 border-4 border-white shadow-lg group">
+                                <!-- Laser Teeth Whitening -->
+                                <template x-if="activeGalleryCase === 'whitening'">
+                                    <div class="w-full h-full relative">
+                                        <img 
+                                            :src="showAfterState ? '/images/whitening_after.jpg' : '/images/whitening_before.jpg'" 
+                                            alt="Laser Teeth Whitening Case Clinical Photo"
+                                            class="w-full h-full object-cover transition-all duration-700 ease-out"
+                                        />
+                                    </div>
+                                </template>
+
+                                <!-- Porcelain Veneers -->
+                                <template x-if="activeGalleryCase === 'veneers'">
+                                    <div class="w-full h-full relative">
+                                        <img 
+                                            :src="showAfterState ? '/images/veneers_after.jpg' : '/images/veneers_before.jpg'" 
+                                            alt="E-Max Porcelain Veneers Case Clinical Photo"
+                                            class="w-full h-full object-cover transition-all duration-700 ease-out"
+                                        />
+                                    </div>
+                                </template>
+
+                                <!-- Clear Aligners -->
+                                <template x-if="activeGalleryCase === 'aligners'">
+                                    <div class="w-full h-full relative">
+                                        <img 
+                                            :src="showAfterState ? '/images/aligners_after.jpg' : '/images/aligners_before.jpg'" 
+                                            alt="Clear Aligner Orthodontic Alignment Case Clinical Photo"
+                                            class="w-full h-full object-cover transition-all duration-700 ease-out"
+                                        />
+                                    </div>
+                                </template>
+
+                                <!-- Dynamic Status Badge -->
+                                <div class="absolute top-4 left-4 flex items-center gap-2">
+                                    <div 
+                                        class="px-3.5 py-1.5 rounded-full backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md transition-all"
+                                        :class="showAfterState ? 'bg-emerald-600/90' : 'bg-terracotta-700/90'"
+                                    >
+                                        <span class="w-2 h-2 rounded-full" :class="showAfterState ? 'bg-emerald-300 animate-pulse' : 'bg-terracotta-200'"></span>
+                                        <span x-text="showAfterState ? 'AFTER: Clinical Result' : 'BEFORE: Initial State'"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Clinical Note Bar Overlaid on Image -->
+                                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent p-4 text-white text-xs">
+                                    <template x-if="activeGalleryCase === 'whitening'">
+                                        <p class="font-medium flex items-center justify-between">
+                                            <span x-text="showAfterState ? '✨ Radiant shade B1 result (45 min laser)' : 'Clinical isolation & cold laser whitening setup'"></span>
+                                            <span class="text-[10px] text-terracotta-200 uppercase font-mono tracking-wider">Authentic Case</span>
+                                        </p>
+                                    </template>
+                                    <template x-if="activeGalleryCase === 'veneers'">
+                                        <p class="font-medium flex items-center justify-between">
+                                            <span x-text="showAfterState ? '✨ Ultra-thin E-Max ceramic veneers bonded' : 'Pre-op: incisal wear, chips & diastema spacing'"></span>
+                                            <span class="text-[10px] text-terracotta-200 uppercase font-mono tracking-wider">Authentic Case</span>
+                                        </p>
+                                    </template>
+                                    <template x-if="activeGalleryCase === 'aligners'">
+                                        <p class="font-medium flex items-center justify-between">
+                                            <span x-text="showAfterState ? '✨ Symmetrical arch alignment (after 7 months)' : 'Pre-op: anterior crowding & rotational misalignment'"></span>
+                                            <span class="text-[10px] text-terracotta-200 uppercase font-mono tracking-wider">Authentic Case</span>
+                                        </p>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <!-- Toggle Controls -->
+                            <div class="flex items-center justify-center gap-2 bg-white/80 p-1.5 rounded-full border border-terracotta-200 shadow-sm max-w-xs mx-auto">
+                                <button 
+                                    @click="showAfterState = false"
+                                    type="button"
+                                    class="flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
+                                    :class="!showAfterState ? 'bg-terracotta-600 text-white shadow-sm' : 'text-espresso/70 hover:text-espresso'"
+                                >
+                                    <span>Before</span>
+                                </button>
+                                <button 
+                                    @click="showAfterState = true"
+                                    type="button"
+                                    class="flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
+                                    :class="showAfterState ? 'bg-emerald-600 text-white shadow-sm' : 'text-espresso/70 hover:text-espresso'"
+                                >
+                                    <span>After ✨</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Case Clinical Notes -->
+                        <div class="space-y-4">
+                            <template x-if="activeGalleryCase === 'whitening'">
+                                <div>
+                                    <span class="text-xs font-bold text-terracotta-600 uppercase tracking-widest">Case 01 • In-Office Laser Care</span>
+                                    <h3 class="font-serif text-3xl font-bold text-espresso mt-1">Deep Stain Reversal</h3>
+                                    <p class="text-sm text-espresso/70 mt-2 leading-relaxed">
+                                        Stubborn tea, coffee, and fluorosis stains gently lifted by up to 6 shades using enamel-safe cold laser activation. Zero dentinal sensitivity reported.
+                                    </p>
+                                    <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Duration</span>
+                                            <span class="font-bold text-espresso">Single 45 Min Session</span>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Longevity</span>
+                                            <span class="font-bold text-espresso">18–24 Months</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-if="activeGalleryCase === 'veneers'">
+                                <div>
+                                    <span class="text-xs font-bold text-terracotta-600 uppercase tracking-widest">Case 02 • Aesthetic Smile Design</span>
+                                    <h3 class="font-serif text-3xl font-bold text-espresso mt-1">E-Max Porcelain Veneers</h3>
+                                    <p class="text-sm text-espresso/70 mt-2 leading-relaxed">
+                                        Corrected chipped edges, uneven spacing, and micro-rotation with ultra-thin, hand-layered ceramic shells tailored to patient facial symmetry.
+                                    </p>
+                                    <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Enamel Removal</span>
+                                            <span class="font-bold text-espresso">Minimal Prep (0.3mm)</span>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Durability</span>
+                                            <span class="font-bold text-espresso">15+ Years</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-if="activeGalleryCase === 'aligners'">
+                                <div>
+                                    <span class="text-xs font-bold text-terracotta-600 uppercase tracking-widest">Case 03 • Invisible Orthodontics</span>
+                                    <h3 class="font-serif text-3xl font-bold text-espresso mt-1">Clear Aligner Alignment</h3>
+                                    <p class="text-sm text-espresso/70 mt-2 leading-relaxed">
+                                        Crowding and mild overbite corrected seamlessly with transparent, removable trays. Completely discreet without metal wires or food restrictions.
+                                    </p>
+                                    <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Average Time</span>
+                                            <span class="font-bold text-espresso">6 to 9 Months</span>
+                                        </div>
+                                        <div class="p-3 rounded-xl bg-white border border-terracotta-100">
+                                            <span class="text-espresso/60 block">Visibility</span>
+                                            <span class="font-bold text-espresso">100% Invisible</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <div class="pt-2">
+                                <button 
+                                    @click="openBookingModal('Smile Transformation Consultation')"
+                                    class="terracotta-gradient text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-md hover:scale-[1.02] transition-all flex items-center gap-2"
+                                >
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                    <span>Plan Your Smile Transformation</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= VIRTUAL SMILE ASSESSMENT QUIZ ================= -->
+        <section id="quiz" class="py-20 bg-sand-100 border-y border-terracotta-200/50">
+            <div class="max-w-4xl mx-auto px-6">
+                
+                <div class="bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-warm border border-terracotta-200">
+                    <div class="text-center max-w-xl mx-auto mb-8">
+                        <span class="px-3.5 py-1 rounded-full bg-terracotta-100 text-terracotta-800 text-[11px] font-bold uppercase tracking-widest inline-block mb-3">
+                            Virtual Assessment
+                        </span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso">
+                            Not Sure Which Treatment You Need?
+                        </h2>
+                        <p class="text-xs sm:text-sm text-espresso/70 mt-2">
+                            Answer 2 quick questions to get an instant customized recommendation sent to our WhatsApp team.
+                        </p>
+                    </div>
+
+                    <!-- Step 1: Main Goal -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-espresso/70 mb-3">
+                                1. What is your primary dental priority?
+                            </label>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <button 
+                                    type="button"
+                                    @click="quizGoal = 'Relieve tooth pain or discomfort'"
+                                    class="p-4 rounded-xl border text-left text-xs font-semibold transition-all flex items-center gap-3"
+                                    :class="quizGoal === 'Relieve tooth pain or discomfort' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900 shadow-sm' : 'border-terracotta-100 hover:bg-sand-50 text-espresso'"
+                                >
+                                    <i data-lucide="shield-alert" class="w-4 h-4 text-terracotta-600 shrink-0"></i>
+                                    <span>Tooth Pain / Urgent Root Canal</span>
+                                </button>
+
+                                <button 
+                                    type="button"
+                                    @click="quizGoal = 'Cosmetic Smile Makeover & Veneers'"
+                                    class="p-4 rounded-xl border text-left text-xs font-semibold transition-all flex items-center gap-3"
+                                    :class="quizGoal === 'Cosmetic Smile Makeover & Veneers' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900 shadow-sm' : 'border-terracotta-100 hover:bg-sand-50 text-espresso'"
+                                >
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                    <span>Cosmetic Veneers & Smile Makeover</span>
+                                </button>
+
+                                <button 
+                                    type="button"
+                                    @click="quizGoal = 'Straightening with Clear Aligners'"
+                                    class="p-4 rounded-xl border text-left text-xs font-semibold transition-all flex items-center gap-3"
+                                    :class="quizGoal === 'Straightening with Clear Aligners' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900 shadow-sm' : 'border-terracotta-100 hover:bg-sand-50 text-espresso'"
+                                >
+                                    <i data-lucide="smile" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                    <span>Straightening with Invisible Aligners</span>
+                                </button>
+
+                                <button 
+                                    type="button"
+                                    @click="quizGoal = 'Replace missing teeth with Implants'"
+                                    class="p-4 rounded-xl border text-left text-xs font-semibold transition-all flex items-center gap-3"
+                                    :class="quizGoal === 'Replace missing teeth with Implants' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900 shadow-sm' : 'border-terracotta-100 hover:bg-sand-50 text-espresso'"
+                                >
+                                    <i data-lucide="gem" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                                    <span>Replace Missing Teeth (Implants/Crowns)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Timeframe -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-espresso/70 mb-3">
+                                2. When would you prefer to visit?
+                            </label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button 
+                                    type="button"
+                                    @click="quizTimeframe = 'Today / Urgent'"
+                                    class="p-3 rounded-xl border text-center text-xs font-semibold transition-all"
+                                    :class="quizTimeframe === 'Today / Urgent' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900' : 'border-terracotta-100 text-espresso/80'"
+                                >
+                                    As soon as possible
+                                </button>
+                                <button 
+                                    type="button"
+                                    @click="quizTimeframe = 'This Week'"
+                                    class="p-3 rounded-xl border text-center text-xs font-semibold transition-all"
+                                    :class="quizTimeframe === 'This Week' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900' : 'border-terracotta-100 text-espresso/80'"
+                                >
+                                    This Week
+                                </button>
+                                <button 
+                                    type="button"
+                                    @click="quizTimeframe = 'Flexible / Weekend'"
+                                    class="p-3 rounded-xl border text-center text-xs font-semibold transition-all"
+                                    :class="quizTimeframe === 'Flexible / Weekend' ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-900' : 'border-terracotta-100 text-espresso/80'"
+                                >
+                                    Flexible Date
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Action Button -->
+                        <div class="pt-4 flex justify-center">
+                            <button 
+                                type="button"
+                                @click="sendQuizToWhatsApp()"
+                                class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-full font-bold text-sm flex items-center gap-3 shadow-lg shadow-emerald-600/25 hover:scale-[1.02] transition-all"
+                            >
+                                <i data-lucide="message-square" class="w-5 h-5"></i>
+                                <span>Send Assessment to WhatsApp (9566644007)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= MASTER APPOINTMENT BOOKING VIA WHATSAPP (PRIMARY USER REQUEST) ================= -->
+        <section id="booking-section" class="py-24 bg-white relative">
+            <div class="max-w-5xl mx-auto px-6">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-600 block mb-2">
+                        Effortless Digital Scheduling
+                    </span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-espresso">
+                        Book Your Appointment via <span class="text-emerald-600 italic font-normal">WhatsApp</span>
+                    </h2>
+                    <p class="text-espresso/70 mt-3 text-sm sm:text-base leading-relaxed">
+                        Select your preferred specialty, date, and time. Your details will be formatted instantly into a priority WhatsApp booking directly sent to <strong class="text-espresso">9566644007</strong> for instant confirmation.
+                    </p>
+                </div>
+
+                <!-- Comprehensive Interactive Booking Card -->
+                <div class="bg-sand-50 rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-terracotta-200/80 shadow-warm grid lg:grid-cols-12 gap-10 items-start" data-aos="fade-up">
+                    
+                    <!-- Form Area (7 Cols) -->
+                    <form @submit.prevent="submitBookingForm()" class="lg:col-span-7 space-y-6" id="appointment-form">
+                        
+                        <!-- 1. Treatment Category -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                1. Select Treatment / Specialty *
+                            </label>
+                            <select 
+                                x-model="bookingData.treatment"
+                                required
+                                class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3.5 text-sm text-espresso font-medium focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
+                            >
+                                <option value="Aesthetics & Smile Design (Veneers / Whitening)">Aesthetics & Smile Design (Veneers / Whitening)</option>
+                                <option value="Painless Root Canal (Endodontics)">Painless Root Canal (Endodontics)</option>
+                                <option value="Restorative Dentistry (Crowns / Ceramic Inlays)">Restorative Dentistry (Crowns / Ceramic Inlays)</option>
+                                <option value="Dental Implants & Tooth Replacement">Dental Implants & Tooth Replacement</option>
+                                <option value="Invisible Clear Aligners (Orthodontics)">Invisible Clear Aligners (Orthodontics)</option>
+                                <option value="Deep Ultrasonic Cleaning & Polishing">Deep Ultrasonic Cleaning & Polishing</option>
+                                <option value="General Consultation & Diagnosis">General Consultation & Diagnosis</option>
+                                <option value="Emergency Tooth Pain Relief">Emergency Tooth Pain Relief</option>
+                            </select>
+                        </div>
+
+                        <!-- 2. Patient Details -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                    Patient Full Name *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    x-model="bookingData.name"
+                                    required 
+                                    placeholder="e.g. Dr. Jai Ganesh"
+                                    class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3.5 text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                    Your Phone Number *
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    x-model="bookingData.phone"
+                                    required 
+                                    placeholder="e.g. 9876543210"
+                                    class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3.5 text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- 3. Preferred Date -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                    Preferred Date *
+                                </label>
+                                <input 
+                                    type="date" 
+                                    x-model="bookingData.date"
+                                    required
+                                    class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3.5 text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                    Time Preference *
+                                </label>
+                                <select 
+                                    x-model="bookingData.slot"
+                                    required
+                                    class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3.5 text-sm text-espresso font-medium focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
+                                >
+                                    <optgroup label="Morning Sessions (9:30 AM – 1:30 PM)">
+                                        <option value="Morning 9:30 AM – 10:30 AM">Morning 9:30 AM – 10:30 AM</option>
+                                        <option value="Morning 10:30 AM – 11:30 AM">Morning 10:30 AM – 11:30 AM</option>
+                                        <option value="Morning 11:30 AM – 12:30 PM">Morning 11:30 AM – 12:30 PM</option>
+                                        <option value="Morning 12:30 PM – 1:30 PM">Morning 12:30 PM – 1:30 PM</option>
+                                    </optgroup>
+                                    <optgroup label="Evening Sessions (4:30 PM – 8:30 PM)">
+                                        <option value="Evening 4:30 PM – 5:30 PM">Evening 4:30 PM – 5:30 PM</option>
+                                        <option value="Evening 5:30 PM – 6:30 PM">Evening 5:30 PM – 6:30 PM</option>
+                                        <option value="Evening 6:30 PM – 7:30 PM">Evening 6:30 PM – 7:30 PM</option>
+                                        <option value="Evening 7:30 PM – 8:30 PM">Evening 7:30 PM – 8:30 PM</option>
+                                    </optgroup>
+                                    <optgroup label="Sunday Special">
+                                        <option value="Sunday By Prior Appointment">Sunday (Special Prior Appointment)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 4. Notes or Symptoms -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-2">
+                                Any Symptoms or Specific Requests (Optional)
+                            </label>
+                            <textarea 
+                                x-model="bookingData.note"
+                                rows="2" 
+                                placeholder="Describe your concern e.g., sensitivity to cold, want teeth whitening before wedding, etc."
+                                class="w-full bg-white border border-terracotta-200 rounded-xl px-4 py-3 text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            id="submit-whatsapp-booking"
+                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-2xl font-bold text-sm tracking-wide shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-3"
+                        >
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            <span>Send Booking to WhatsApp (9566644007)</span>
+                        </button>
+
+                        <p class="text-center text-[11px] text-espresso/60 flex items-center justify-center gap-1.5">
+                            <i data-lucide="lock" class="w-3.5 h-3.5 text-terracotta-600"></i>
+                            <span>Instant direct message sent to official clinic desk. No spam, 100% confidential.</span>
+                        </p>
+
+                    </form>
+
+                    <!-- Preview & Clinic Contact Sidebar (5 Cols) -->
+                    <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-terracotta-200 shadow-sm space-y-6">
+                        
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-terracotta-700 bg-terracotta-50 px-2.5 py-1 rounded-full inline-block mb-2">
+                                Clinic Location &amp; Access
+                            </span>
+                            <h3 class="font-serif font-bold text-xl text-espresso">
+                                Visiting Tooth or Dare
+                            </h3>
+                        </div>
+
+                        <!-- Location & Landmark Details Card -->
+                        <div class="bg-sand-50/80 border border-terracotta-200/80 rounded-2xl p-5 text-sm text-espresso space-y-4 shadow-sm">
+                            <!-- Landmark Spotlight -->
+                            <div class="flex items-start gap-3 p-3 bg-white rounded-xl border border-terracotta-100">
+                                <div class="w-9 h-9 rounded-lg bg-terracotta-500/10 text-terracotta-600 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-terracotta-600"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-[11px] font-bold uppercase tracking-wider text-terracotta-600 block">Key Landmark</span>
+                                    <p class="font-semibold text-espresso leading-snug">
+                                        Above Alai Theneer Kadal
+                                    </p>
+                                    <p class="text-xs text-espresso/70 leading-relaxed">
+                                        Shop no. 3, First floor, Kelambakkam Bypass Rd, Thaiyur, Chennai 603103
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Accessibility Highlights -->
+                            <div class="space-y-2.5 text-xs text-espresso/80 pt-1">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                                        <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                                    </div>
+                                    <span>Right on Kelambakkam Bypass, minutes from OMR &amp; Siruseri SIPCOT</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                                        <i data-lucide="car" class="w-3.5 h-3.5"></i>
+                                    </div>
+                                    <span>Dedicated ground-level customer parking for cars and two-wheelers</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center shrink-0">
+                                        <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    </div>
+                                    <span>Mon–Sat: 9:30 AM–1:30 PM &amp; 4:30 PM–8:30 PM (Sun by appt)</span>
+                                </div>
+                            </div>
+
+                            <!-- Map Link Button -->
+                            <a 
+                                href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-terracotta-600 hover:bg-terracotta-700 text-white rounded-xl text-xs font-bold tracking-wide transition-colors shadow-sm"
+                            >
+                                <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                                <span>Get Driving Directions on Google Maps</span>
+                            </a>
+                        </div>
+
+                        <!-- Quick Direct Contact Card -->
+                        <div class="p-4 rounded-2xl bg-terracotta-50 border border-terracotta-100 space-y-3">
+                            <p class="text-xs font-bold uppercase tracking-wider text-terracotta-800">
+                                Need Immediate Assistance?
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-terracotta-500 text-white flex items-center justify-center shrink-0">
+                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-espresso/60 font-medium">Direct Clinic Hotline</p>
+                                    <a href="tel:9566644007" class="text-sm font-bold text-espresso hover:text-terracotta-700 transition-colors">
+                                        +91 95666 44007
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= PATIENT TESTIMONIALS (5.0 STAR REVIEWS) ================= -->
+        <section class="py-20 bg-sand-50 border-t border-terracotta-200/60">
+            <div class="max-w-7xl mx-auto px-6">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-14" data-aos="fade-up">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-600 block mb-2">
+                            Patient Stories
+                        </span>
+                        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-espresso">
+                            Words From Those We <span class="italic text-terracotta-600 font-normal">Care For</span>
+                        </h2>
+                    </div>
+
+                    <a 
+                        href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta-700 hover:text-terracotta-900 transition-colors"
+                    >
+                        <span>View All Google Reviews</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Reviews Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <div class="p-8 rounded-3xl bg-white border border-terracotta-100 shadow-sm relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <div class="flex text-amber-500 mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif italic text-espresso/80 text-base leading-relaxed mb-6">
+                                "The clinic interior feels like an ultra-chic boutique hotel. I had acute tooth pain and was terrified of a root canal, but the doctor made it 100% painless. Booking on WhatsApp was seamless!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-sm text-espresso">Kavitha R.</h3>
+                                <p class="text-[11px] text-espresso/60">Kelambakkam, OMR</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Endodontics</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-white border border-terracotta-100 shadow-sm relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <div class="flex text-amber-500 mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif italic text-espresso/80 text-base leading-relaxed mb-6">
+                                "Got my porcelain veneers done here for my wedding. The aesthetic precision, tooth shade matching, and natural translucency are outstanding. Truly world class!"
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-sm text-espresso">Arun Kumar S.</h3>
+                                <p class="text-[11px] text-espresso/60">Chennai</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-terracotta-700 bg-terracotta-50 px-2 py-0.5 rounded-full">Smile Aesthetics</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-white border border-terracotta-100 shadow-sm relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                        <div>
+                            <div class="flex text-amber-500 mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif italic text-espresso/80 text-base leading-relaxed mb-6">
+                                "Such a calm, gentle doctor and team. Zero rush, thorough digital scans, and crystal-clear explanation before every step. Best dental clinic experience by far."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-sand-200 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-sm text-espresso">Meera Vardhan</h3>
+                                <p class="text-[11px] text-espresso/60">Alliance Humming Garden</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full">Restorative Care</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= CLINIC LOCATION, MAPS & CONTACT HUB ================= -->
+        <section id="location" class="py-24 bg-espresso text-sand-50 relative overflow-hidden">
+            
+            <!-- Ambient terracotta backdrop light -->
+            <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-terracotta-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    
+                    <!-- Left Contact Details (6 Cols) -->
+                    <div class="lg:col-span-6 space-y-8" data-aos="fade-right">
+                        
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta-300 block mb-2">
+                                Visit Our Sanctuary
+                            </span>
+                            <div class="flex flex-col w-full max-w-[270px] select-none">
+                                <!-- Exact Brand Lockup with tight 22px spacing -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" class="w-full h-auto" aria-label="Tooth or Dare Dental Clinic">
+                                  <defs>
+                                    <style>
+                                      .wm-sanc-brand { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 900; fill: #FFFFFF; }
+                                      .wm-sanc-gold { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; }
+                                      .wm-sanc-sub { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; font-size: 19px; }
+                                    </style>
+                                  </defs>
+                                  <!-- Row 1: Brand Title (Span: 95 to 585, Center Axis at X=340) -->
+                                  <text x="95" y="58" class="wm-sanc-brand" font-size="48" letter-spacing="-0.02em">T</text>
+                                  <path d="M 185 41 C 166 23, 140 23, 140 41 C 140 59, 166 59, 185 41 C 204 23, 230 23, 230 41 C 230 59, 204 59, 185 41 Z" fill="none" stroke="#FFFFFF" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+                                  <text x="242" y="58" class="wm-sanc-brand" font-size="48" letter-spacing="-0.01em">TH</text>
+                                  <!-- Center: OR badge with tight 22px gap -->
+                                  <g transform="translate(340, 26)">
+                                    <line x1="-20" y1="2" x2="20" y2="2" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                                    <text x="0" y="24" class="wm-sanc-gold" font-size="21" text-anchor="middle" letter-spacing="0.04em">OR</text>
+                                    <line x1="-20" y1="36" x2="20" y2="36" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                                  </g>
+                                  <!-- Right: DARE with tight 22px gap -->
+                                  <g transform="translate(382, 0)">
+                                    <line x1="4" y1="22" x2="4" y2="58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="square" />
+                                    <path d="M 10 22 C 34 22, 48 29, 48 40 C 48 51, 34 58, 10 58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" fill="none" />
+                                    <text x="56" y="58" class="wm-sanc-brand" font-size="48" letter-spacing="0.14em">ARE</text>
+                                  </g>
+                                  <!-- Row 2: Symmetric Golden Rules & Centered Molar Outline -->
+                                  <g transform="translate(340, 85)">
+                                    <line x1="-205" y1="0" x2="-25" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                                    <path d="M 0 -8 C -6 -15, -14 -11, -14 2 C -14 10, -10 16, -6 23 C -4 27, -1 27, 0 20 C 1 27, 4 27, 6 23 C 10 16, 14 10, 14 2 C 14 -11, 6 -15, 0 -8 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" transform="scale(0.9) translate(0, -6)" />
+                                    <line x1="25" y1="0" x2="205" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                                  </g>
+                                  <!-- Row 3: Subtitle from X=50 to X=630 -->
+                                  <text x="340" y="126" class="wm-sanc-sub" text-anchor="middle" textLength="580" lengthAdjust="spacing">DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Contact List -->
+                        <div class="space-y-6 text-sm text-sand-200">
+                            
+                            <!-- Address -->
+                            <a 
+                                href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
+                                id="contact-map-link"
+                            >
+                                <div class="w-10 h-10 rounded-xl bg-terracotta-500/20 text-terracotta-300 flex items-center justify-center shrink-0 group-hover:bg-terracotta-500 group-hover:text-white transition-all">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-wider font-bold text-terracotta-300 mb-1">Clinic Address</p>
+                                    <p class="text-white font-medium">Shop no.3, First floor, Kelambakkam Byp Rd, above Alai Theneer Kadal, Chennai, Thaiyur, Tamil Nadu 603103</p>
+                                    <span class="text-xs text-amberGlow-300 font-semibold mt-1 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                        Open in Google Maps &rarr;
+                                    </span>
+                                </div>
+                            </a>
+
+                            <!-- WhatsApp & Call -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <a 
+                                    href="https://wa.me/919566644007?text=Hello%20Tooth%20or%20Dare%20Dental%20Clinic!" 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-emerald-950/40 hover:border-emerald-500/40 transition-all group"
+                                    id="contact-whatsapp-link"
+                                >
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] uppercase tracking-wider font-bold text-emerald-400 mb-0.5">WhatsApp Booking</p>
+                                        <p class="text-white font-bold text-base">9566644007</p>
+                                        <span class="text-[11px] text-emerald-300">Fast Response</span>
+                                    </div>
+                                </a>
+
+                                <a 
+                                    href="tel:9566644007" 
+                                    class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
+                                    id="contact-phone-link"
+                                >
+                                    <div class="w-10 h-10 rounded-xl bg-terracotta-500/20 text-terracotta-300 flex items-center justify-center shrink-0 group-hover:bg-terracotta-500 group-hover:text-white transition-all">
+                                        <i data-lucide="phone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] uppercase tracking-wider font-bold text-terracotta-300 mb-0.5">Direct Call</p>
+                                        <p class="text-white font-bold text-base">9566644007</p>
+                                        <span class="text-[11px] text-sand-300">Direct Consultation</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Working Hours -->
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta-300">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                    <span>Clinic Timings</span>
+                                </div>
+                                <div class="grid sm:grid-cols-2 gap-2 text-xs pt-1">
+                                    <div>
+                                        <span class="text-white/60 block">Monday – Saturday</span>
+                                        <span class="text-white font-semibold">9:30 AM – 1:30 PM & 4:30 PM – 8:30 PM</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-white/60 block">Sunday</span>
+                                        <span class="text-amberGlow-300 font-semibold">By Prior Appointment Only</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Instagram Connect Banner -->
+                            <div class="p-4 rounded-2xl bg-gradient-to-r from-pink-900/40 via-purple-900/30 to-terracotta-900/40 border border-pink-500/30 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0">
+                                        <img src="/images/instagram.svg" alt="Instagram" class="w-6 h-6 rounded-[5px] object-contain" width="24" height="24" />
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white">Instagram Community</p>
+                                        <p class="text-xs text-pink-300">@tooth.or_dare</p>
+                                    </div>
+                                </div>
+                                <a 
+                                    href="https://www.instagram.com/tooth.or_dare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="px-4 py-2 rounded-xl bg-white text-espresso text-xs font-bold uppercase tracking-wider hover:bg-pink-100 transition-all shrink-0"
+                                >
+                                    Follow
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right Google Maps Preview Card (6 Cols) -->
+                    <div class="lg:col-span-6 space-y-6" data-aos="fade-left">
+                        
+                        <div class="rounded-3xl overflow-hidden border border-white/15 bg-white/5 p-2 shadow-2xl">
+                            
+                            <!-- Static Map / Route Preview Framing -->
+                            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-terracotta-950 flex flex-col justify-between p-6">
+                                
+                                <!-- Background Map Texture / Coordinates visualization -->
+                                <div class="absolute inset-0 opacity-30 bg-[radial-gradient(#C67D77_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                                
+                                <div class="relative z-10 flex justify-between items-start">
+                                    <div class="bg-espresso/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-xs text-sand-100 flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        <span>OMR Kelambakkam Hub</span>
+                                    </div>
+                                    <span class="text-xs text-sand-400 font-mono">12.7800° N, 80.2234° E</span>
+                                </div>
+
+                                <div class="relative z-10 text-center py-8">
+                                    <div class="w-16 h-16 rounded-full bg-terracotta-500 text-white flex items-center justify-center mx-auto mb-3 shadow-glow animate-bounce">
+                                        <i data-lucide="map-pin" class="w-8 h-8"></i>
+                                    </div>
+                                    <h3 class="font-serif text-2xl font-bold text-white">Tooth or Dare Dental Clinic</h3>
+                                    <p class="text-xs text-sand-300 mt-1 max-w-sm mx-auto">
+                                        Shop no.3, First floor, Kelambakkam Byp Rd, above Alai Theneer Kadal, Chennai, Thaiyur, Tamil Nadu 603103
+                                    </p>
+                                </div>
+
+                                <div class="relative z-10">
+                                    <a 
+                                        href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        class="w-full bg-white text-espresso py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-terracotta-100 transition-all flex items-center justify-center gap-2 shadow-lg"
+                                        id="open-in-google-maps-btn"
+                                    >
+                                        <i data-lucide="navigation" class="w-4 h-4 text-terracotta-600"></i>
+                                        <span>Open Navigation in Google Maps</span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="p-4 text-xs text-sand-300 flex items-center justify-between">
+                                <span>Parking Available on Premises</span>
+                                <span class="text-emerald-400 font-medium">Appointments Priority</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1B100F] text-sand-300 text-xs py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full p-1 bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+                    <img 
+                        src="/images/clinic_logo.svg" 
+                        alt="Tooth or Dare Clinic Logo" 
+                        class="w-full h-full object-contain filter brightness-110"
+                        width="36"
+                        height="36"
+                    />
+                </div>
+                <div class="flex flex-col justify-center w-[190px] sm:w-[220px] select-none">
+                    <!-- Exact Brand Lockup for Footer with tight 22px gap -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" class="w-full h-auto" aria-label="Tooth or Dare Dental Clinic">
+                      <defs>
+                        <style>
+                          .wm-ft-brand { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 900; fill: #FFFFFF; }
+                          .wm-ft-gold { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; }
+                          .wm-ft-sub { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #D4A259; font-size: 19px; }
+                        </style>
+                      </defs>
+
+                      <!-- Row 1: Brand Title (Span: 95 to 585, Center Axis at X=340) -->
+                      <!-- Left: TOOTH (Span: 95 to 298) -->
+                      <text x="95" y="58" class="wm-ft-brand" font-size="48" letter-spacing="-0.02em">T</text>
+                      
+                      <!-- Infinity OO Loop -->
+                      <path d="M 185 41 C 166 23, 140 23, 140 41 C 140 59, 166 59, 185 41 C 204 23, 230 23, 230 41 C 230 59, 204 59, 185 41 Z" 
+                            fill="none" 
+                            stroke="#FFFFFF" 
+                            stroke-width="9.5" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" />
+                            
+                      <!-- TH -->
+                      <text x="242" y="58" class="wm-ft-brand" font-size="48" letter-spacing="-0.01em">TH</text>
+
+                      <!-- Center: OR badge (Span: 320 to 360, Center at X=340) -->
+                      <!-- Tight 22px distance to TOOTH and DARE -->
+                      <g transform="translate(340, 26)">
+                        <line x1="-20" y1="2" x2="20" y2="2" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                        <text x="0" y="24" class="wm-ft-gold" font-size="21" text-anchor="middle" letter-spacing="0.04em">OR</text>
+                        <line x1="-20" y1="36" x2="20" y2="36" stroke="#D4A259" stroke-width="2.6" stroke-linecap="round" />
+                      </g>
+
+                      <!-- Right: DARE (Span: 382 to 585) -->
+                      <g transform="translate(382, 0)">
+                        <!-- Stencil D -->
+                        <line x1="4" y1="22" x2="4" y2="58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="square" />
+                        <path d="M 10 22 C 34 22, 48 29, 48 40 C 48 51, 34 58, 10 58" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" fill="none" />
+                        <text x="56" y="58" class="wm-ft-brand" font-size="48" letter-spacing="0.14em">ARE</text>
+                      </g>
+
+                      <!-- Row 2: Symmetric Golden Rules & Centered Molar Outline (Center Axis at X=340) -->
+                      <g transform="translate(340, 85)">
+                        <line x1="-205" y1="0" x2="-25" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                        <path d="M 0 -8 C -6 -15, -14 -11, -14 2 C -14 10, -10 16, -6 23 C -4 27, -1 27, 0 20 C 1 27, 4 27, 6 23 C 10 16, 14 10, 14 2 C 14 -11, 6 -15, 0 -8 Z" 
+                              fill="none" 
+                              stroke="#FFFFFF" 
+                              stroke-width="2.5" 
+                              stroke-linejoin="round" 
+                              stroke-linecap="round" 
+                              transform="scale(0.9) translate(0, -6)" />
+                        <line x1="25" y1="0" x2="205" y2="0" stroke="#D4A259" stroke-width="2.2" stroke-linecap="round" />
+                      </g>
+
+                      <!-- Row 3: Subtitle from X=50 to X=630 (Center Axis at X=340) -->
+                      <text x="340" y="126" class="wm-ft-sub" text-anchor="middle" textLength="580" lengthAdjust="spacing">DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS</text>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="text-sand-400 text-center md:text-left">
+                &copy; 2026 Tooth or Dare Dental Clinic. All Rights Reserved. WhatsApp Care: +91 95666 44007.
+            </p>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/tooth.or_dare?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity" title="Instagram @tooth.or_dare">
+                    <img src="/images/instagram.svg" alt="Instagram" class="w-4 h-4 rounded-[3px] object-contain" width="16" height="16" />
+                </a>
+                <a href="https://maps.app.goo.gl/8ymjmmADFCg7dSjVA" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="Google Maps">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </a>
+                <a href="https://wa.me/919566644007" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="WhatsApp">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Floating Persistent WhatsApp Booking Button -->
+    <aside class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <a 
+            href="https://wa.me/919566644007?text=Hello%20Tooth%20or%20Dare%20Dental%20Clinic!%20I%20would%20like%20to%20book%20an%20appointment."
+            target="_blank"
+            rel="noopener noreferrer"
+            id="floating-whatsapp-widget"
+            class="group relative flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-emerald-900/40 hover:scale-105 transition-all duration-300"
+            aria-label="Book appointment on WhatsApp"
+        >
+            <span class="absolute -top-1.5 -left-1.5 w-4 h-4 rounded-full bg-emerald-400 animate-ping"></span>
+            <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </div>
+            <div class="text-left">
+                <span class="block text-[10px] uppercase font-bold tracking-wider opacity-90 leading-none">Book On WhatsApp</span>
+                <span class="font-bold text-xs leading-tight">9566644007</span>
+            </div>
+        </a>
+    </aside>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Application Controller Logic (Alpine.js) -->
+    <script>
+        function clinicApp() {
+            return {
+                isScrolled: false,
+                mobileMenuOpen: false,
+                activeGalleryCase: 'whitening',
+                showAfterState: true,
+                quizGoal: 'Cosmetic Smile Makeover & Veneers',
+                quizTimeframe: 'This Week',
+                bookingData: {
+                    treatment: 'Aesthetics & Smile Design (Veneers / Whitening)',
+                    name: '',
+                    phone: '',
+                    date: new Date(Date.now() + 86400000).toISOString().split('T')[0], // Defaults to tomorrow
+                    slot: 'Morning 10:30 AM – 11:30 AM',
+                    note: ''
+                },
+
+                initApp() {
+                    window.addEventListener('scroll', () => {
+                        this.isScrolled = window.scrollY > 40;
+                    });
+                    
+                    this.$nextTick(() => {
+                        lucide.createIcons();
+                        AOS.init({
+                            duration: 800,
+                            once: true,
+                            offset: 60
+                        });
+                    });
+                },
+
+                selectServiceAndBook(serviceName) {
+                    this.bookingData.treatment = serviceName;
+                    const bookingSection = document.getElementById('booking-section');
+                    if (bookingSection) {
+                        bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                },
+
+                openBookingModal(treatment = null) {
+                    if (treatment) {
+                        this.bookingData.treatment = treatment;
+                    }
+                    const bookingSection = document.getElementById('booking-section');
+                    if (bookingSection) {
+                        bookingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                },
+
+                submitBookingForm() {
+                    const phoneClinic = "919566644007";
+                    const lines = [
+                        "Hello Tooth or Dare Dental Clinic!",
+                        "I would like to book an appointment:",
+                        "• Patient: " + (this.bookingData.name || "Patient"),
+                        "• Treatment: " + this.bookingData.treatment,
+                        "• Date: " + (this.bookingData.date || "Earliest available"),
+                        "• Preferred Time: " + this.bookingData.slot,
+                        "• Contact: " + (this.bookingData.phone || "Not provided")
+                    ];
+
+                    if (this.bookingData.note && this.bookingData.note.trim() !== '') {
+                        lines.push("• Note: " + this.bookingData.note.trim());
+                    }
+
+                    lines.push("Kindly confirm the slot availability. Thank you!");
+                    const text = encodeURIComponent(lines.join("\n"));
+                    const waUrl = "https://wa.me/" + phoneClinic + "?text=" + text;
+                    window.open(waUrl, "_blank");
+                },
+
+                sendQuizToWhatsApp() {
+                    const phoneClinic = "919566644007";
+                    const message = [
+                        "Hello Tooth or Dare Dental Clinic!",
+                        "I just completed the Virtual Smile Assessment on your website:",
+                        "• Primary Goal: " + this.quizGoal,
+                        "• Preferred Timeframe: " + this.quizTimeframe,
+                        "Could you please advise on suitable appointment slots and consultation options? Thank you!"
+                    ].join("\n");
+
+                    const waUrl = "https://wa.me/" + phoneClinic + "?text=" + encodeURIComponent(message);
+                    window.open(waUrl, "_blank");
+                }
+            };
+        }
+    </script>
+</body>
+</html>

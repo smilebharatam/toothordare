@@ -1,0 +1,283 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%" class="w-full h-full">
+  <defs>
+    <!-- Background & Wall Gradients -->
+    <linearGradient id="wallLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E28E87" />
+      <stop offset="60%" stop-color="#D97F78" />
+      <stop offset="100%" stop-color="#C86E67" />
+    </linearGradient>
+
+    <linearGradient id="wallRight" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#E6958E" />
+      <stop offset="50%" stop-color="#DB837C" />
+      <stop offset="100%" stop-color="#C56A63" />
+    </linearGradient>
+
+    <linearGradient id="wallBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DE8982" />
+      <stop offset="100%" stop-color="#C6716A" />
+    </linearGradient>
+
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C8B8A6" />
+      <stop offset="40%" stop-color="#D2C3B2" />
+      <stop offset="100%" stop-color="#BDAA96" />
+    </linearGradient>
+
+    <!-- Ceiling Gradients & Cove Lights -->
+    <radialGradient id="ceilingGlow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FFF8EE" />
+      <stop offset="60%" stop-color="#F2E6D8" />
+      <stop offset="100%" stop-color="#E4D3C0" />
+    </radialGradient>
+
+    <filter id="coveGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" />
+    </filter>
+
+    <linearGradient id="sofaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2" />
+      <stop offset="50%" stop-color="#EFECE5" />
+      <stop offset="100%" stop-color="#DFD9D0" />
+    </linearGradient>
+
+    <linearGradient id="coveStrip" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE8C2" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#D87E77" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Room Shell Base -->
+  <!-- Ceiling Plane -->
+  <polygon points="0,0 1200,0 850,300 520,300 0,270" fill="url(#ceilingGlow)" />
+  
+  <!-- Back Wall -->
+  <polygon points="520,300 850,300 850,550 520,550" fill="url(#wallBack)" />
+
+  <!-- Left Wall -->
+  <polygon points="0,0 520,300 520,550 0,870" fill="url(#wallLeft)" />
+
+  <!-- Right Wall -->
+  <polygon points="1200,0 850,300 850,550 1200,770" fill="url(#wallRight)" />
+
+  <!-- Floor Plane -->
+  <polygon points="0,870 520,550 850,550 1200,770 1200,900 0,900" fill="url(#floorGrad)" />
+
+  <!-- Floor Tile Perspective Lines -->
+  <g stroke="#B39F8C" stroke-width="1.2" opacity="0.45">
+    <line x1="520" y1="550" x2="-200" y2="900" />
+    <line x1="600" y1="550" x2="100" y2="900" />
+    <line x1="680" y1="550" x2="400" y2="900" />
+    <line x1="760" y1="550" x2="700" y2="900" />
+    <line x1="850" y1="550" x2="1050" y2="900" />
+    <!-- Horizontal transverse tile lines -->
+    <line x1="450" y1="590" x2="880" y2="590" />
+    <line x1="360" y1="640" x2="940" y2="640" />
+    <line x1="240" y1="710" x2="1020" y2="710" />
+    <line x1="90" y1="800" x2="1120" y2="800" />
+  </g>
+
+  <!-- Warm LED Ceiling Cove Wash along perimeter walls -->
+  <polygon points="0,0 520,300 520,340 0,80" fill="url(#coveStrip)" />
+  <polygon points="1200,0 850,300 850,335 1200,60" fill="url(#coveStrip)" />
+  <rect x="520" y="300" width="330" height="30" fill="url(#coveStrip)" opacity="0.7" />
+
+  <!-- 2. Architectural Spiral Petal Ceiling Lighting (The Iconic Feature) -->
+  <g id="petalCeiling" transform="translate(680, 160) scale(1.15, 0.72)">
+    <!-- Ambient back glow for cove -->
+    <ellipse cx="0" cy="0" rx="260" ry="140" fill="#FFDFC0" opacity="0.35" filter="url(#coveGlow)" />
+
+    <!-- Outer Petal Curve 1 -->
+    <path d="M -230,-40 C -220,-110, -80,-140, 60,-130 C 180,-120, 240,-50, 210,30 C 180,95, 70,125, -50,115 C -150,105, -210,40, -210,0" 
+          fill="#FFF9F2" stroke="#FFBF75" stroke-width="9" filter="url(#coveGlow)" />
+    
+    <!-- Outer Petal Curve 2 (Inner concentric swirl) -->
+    <path d="M -160,-20 C -150,-70, -50,-95, 40,-85 C 120,-75, 160,-30, 140,25 C 120,70, 40,90, -40,80 C -100,70, -145,30, -140,-5" 
+          fill="#FFFBF7" stroke="#FFAE52" stroke-width="8" />
+
+    <!-- Center Tier Circle -->
+    <ellipse cx="0" cy="2" rx="78" ry="46" fill="#F4E8D8" stroke="#D18C47" stroke-width="4" />
+    <ellipse cx="0" cy="0" rx="74" ry="42" fill="#FFFDF9" stroke="#FFC98A" stroke-width="6" filter="url(#coveGlow)" />
+
+    <!-- Recessed Spotlights in Ceiling -->
+    <g fill="#FFFFFF" filter="url(#coveGlow)">
+      <circle cx="-190" cy="-20" r="3.5" />
+      <circle cx="-140" cy="-70" r="3.5" />
+      <circle cx="-50" cy="-110" r="3.5" />
+      <circle cx="80" cy="-105" r="3.5" />
+      <circle cx="170" cy="-60" r="3.5" />
+      <circle cx="190" cy="15" r="3.5" />
+      <circle cx="120" cy="70" r="3.5" />
+      <circle cx="30" cy="85" r="3.5" />
+      <circle cx="-60" cy="70" r="3.5" />
+      <!-- Center ring spots -->
+      <circle cx="-40" cy="2" r="2.8" />
+      <circle cx="0" cy="-22" r="2.8" />
+      <circle cx="40" cy="2" r="2.8" />
+      <circle cx="0" cy="24" r="2.8" />
+    </g>
+  </g>
+
+  <!-- 3. Back Wall Furniture (Door, Counter & Decor) -->
+  <!-- Dark Walnut Consultation Suite Door -->
+  <rect x="530" y="355" width="76" height="195" fill="#3D2B24" rx="2" />
+  <rect x="532" y="357" width="72" height="191" fill="#4E372E" />
+  <!-- Door Handle -->
+  <line x1="595" y1="455" x2="595" y2="475" stroke="#1A1412" stroke-width="3.5" stroke-linecap="round" />
+  <circle cx="595" cy="465" r="3" fill="#D4AF37" />
+
+  <!-- Reception Desk (Ribbed / Fluted Curved Counter) -->
+  <g id="receptionDesk">
+    <!-- Desk Shadow -->
+    <ellipse cx="740" cy="565" rx="105" ry="18" fill="#5A4035" opacity="0.35" filter="url(#softShadow)" />
+    <!-- Desk Body with Fluted Texture -->
+    <path d="M 645,475 C 645,475, 740,465, 835,475 L 835,560 C 740,572, 645,560, 645,560 Z" fill="#F4EFE6" />
+    <!-- Desk Fluting Lines -->
+    <g stroke="#E3DACB" stroke-width="2.5">
+      <line x1="660" y1="474" x2="660" y2="561" />
+      <line x1="680" y1="472" x2="680" y2="563" />
+      <line x1="700" y1="471" x2="700" y2="565" />
+      <line x1="720" y1="470" x2="720" y2="566" />
+      <line x1="740" y1="470" x2="740" y2="566" />
+      <line x1="760" y1="471" x2="760" y2="565" />
+      <line x1="780" y1="472" x2="780" y2="563" />
+      <line x1="800" y1="473" x2="800" y2="562" />
+      <line x1="820" y1="474" x2="820" y2="561" />
+    </g>
+    <!-- Countertop Surface -->
+    <ellipse cx="740" cy="474" rx="95" ry="14" fill="#FAF7F2" stroke="#E5DDD0" stroke-width="2" />
+    <!-- Desk Computer Monitor -->
+    <rect x="750" y="435" width="44" height="28" fill="#1C1B1A" rx="2" />
+    <rect x="752" y="437" width="40" height="24" fill="#383633" />
+    <rect x="769" y="463" width="6" height="11" fill="#1C1B1A" />
+    <!-- Desk Plant -->
+    <ellipse cx="665" cy="466" rx="6" ry="4" fill="#D6C7B2" />
+    <circle cx="665" cy="457" r="9" fill="#2E5A36" />
+    <circle cx="662" cy="452" r="6" fill="#3B7345" />
+  </g>
+
+  <!-- Left Indoor Potted Plant (Ficus in tall ribbed urn) -->
+  <g id="leftPlant" transform="translate(490, 510)">
+    <!-- Urn Shadow -->
+    <ellipse cx="25" cy="115" rx="22" ry="7" fill="#4A342B" opacity="0.4" />
+    <!-- Urn Body -->
+    <path d="M 12,50 L 38,50 L 33,115 L 17,115 Z" fill="#EFE8DE" stroke="#D7CCC0" stroke-width="1.5" />
+    <!-- Foliage -->
+    <circle cx="25" cy="18" r="22" fill="#244B2C" />
+    <circle cx="15" cy="30" r="18" fill="#2D5C37" />
+    <circle cx="34" cy="32" r="17" fill="#376E43" />
+    <circle cx="25" cy="42" r="16" fill="#23482A" />
+  </g>
+
+  <!-- 4. Right Wall Clinic Logo & Brand Wordmark (Bronze/Gold 3D Wall Art) -->
+  <g id="rightWallLogo" transform="translate(940, 360) scale(0.72) skewY(-8)">
+    <!-- Tooth Logo -->
+    <path d="M 28 35 C 18 10, -5 12, -5 36 C -5 57, 5 74, 15 93 C 20 103, 27 103, 34 83 C 41 103, 48 103, 53 93 C 63 74, 73 57, 73 36 C 73 12, 50 10, 40 35 C 38 40, 30 40, 28 35 Z" 
+          fill="none" stroke="#5E3C26" stroke-width="4.5" stroke-linejoin="round" />
+    <path d="M 28 35 C 18 10, -5 12, -5 36 C -5 57, 5 74, 15 93 C 20 103, 27 103, 34 83 C 41 103, 48 103, 53 93 C 63 74, 73 57, 73 36 C 73 12, 50 10, 40 35 C 38 40, 30 40, 28 35 Z" 
+          fill="none" stroke="#8C6246" stroke-width="3" stroke-linejoin="round" transform="translate(-1,-1)" />
+
+    <!-- Typography (TOOTH OR DARE) -->
+    <g font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" fill="#523522">
+      <!-- TOOTH -->
+      <text x="90" y="44" font-size="34" letter-spacing="0.05em">TOOTH</text>
+      <!-- OR -->
+      <text x="135" y="65" font-size="16" font-weight="800" fill="#6B472F">OR</text>
+      <!-- DARE -->
+      <text x="90" y="96" font-size="34" letter-spacing="0.08em">DARE</text>
+    </g>
+
+    <!-- Subtitle Line -->
+    <text x="-5" y="126" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="800" fill="#6B472F" letter-spacing="0.12em">
+      DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS
+    </text>
+  </g>
+
+  <!-- 5. Sculptural Curved Boucle Sofa (The Masterpiece Seating) -->
+  <g id="boucleSofa">
+    <!-- Sofa Floor Shadow -->
+    <path d="M 740,660 C 850,650, 1050,710, 1200,750 L 1200,850 C 1050,880, 880,840, 720,740 Z" fill="#50372B" opacity="0.32" filter="url(#softShadow)" />
+
+    <!-- Sofa Main Curved Backrest & Seat Silhouette -->
+    <!-- Base / Seat Surface -->
+    <path d="M 740,635 
+             C 770,610, 840,600, 930,625 
+             C 1020,650, 1120,685, 1200,710
+             L 1200,830
+             C 1120,835, 960,830, 880,780
+             C 800,730, 720,670, 740,635 Z" 
+          fill="url(#sofaGrad)" stroke="#DFD5C6" stroke-width="3" />
+
+    <!-- Sofa Backrest Cushion Arc -->
+    <path d="M 770,620
+             C 810,590, 890,580, 970,605
+             C 1060,630, 1150,660, 1200,680
+             L 1200,740
+             C 1120,720, 1030,685, 950,665
+             C 860,640, 790,640, 770,620 Z"
+          fill="#FFFDF9" stroke="#EBE3D7" stroke-width="2" />
+
+    <!-- Left Armrest Curve -->
+    <path d="M 740,635 C 720,645, 715,670, 735,685 C 765,705, 800,720, 835,745 C 830,725, 800,670, 740,635 Z" 
+          fill="#F5F0E6" stroke="#E3DACB" stroke-width="2" />
+
+    <!-- Throw Pillows on Sofa -->
+    <!-- Pillow 1 -->
+    <g transform="translate(890, 610) rotate(-12)">
+      <rect x="0" y="0" width="46" height="38" rx="8" fill="#DFD3C1" stroke="#CCA475" stroke-width="1.5" />
+      <path d="M 5,5 Q 23,20 41,5" stroke="#C5B6A0" stroke-width="1.2" fill="none" opacity="0.6" />
+    </g>
+    <!-- Pillow 2 -->
+    <g transform="translate(925, 620) rotate(8)">
+      <rect x="0" y="0" width="44" height="36" rx="8" fill="#ECE2D3" stroke="#CCA475" stroke-width="1.5" />
+      <path d="M 5,5 Q 22,18 39,5" stroke="#D3C5B1" stroke-width="1.2" fill="none" opacity="0.6" />
+    </g>
+  </g>
+
+  <!-- 6. Designer Kidney-Shaped Coffee Table in Lounge -->
+  <g id="coffeeTable" transform="translate(620, 680)">
+    <!-- Table Cast Shadow -->
+    <ellipse cx="65" cy="55" rx="75" ry="24" fill="#3D2B22" opacity="0.4" filter="url(#softShadow)" />
+
+    <!-- Pedestal Base -->
+    <ellipse cx="65" cy="40" rx="30" ry="12" fill="#1C1815" />
+    <path d="M 38,20 L 92,20 L 95,40 L 35,40 Z" fill="#241E1A" />
+
+    <!-- Dark Matte Walnut Tabletop -->
+    <path d="M 10,20 C -5,5, 20,-15, 65,-12 C 110,-10, 145,5, 140,22 C 135,38, 100,45, 60,42 C 20,40, -2,32, 10,20 Z" 
+          fill="#2C241F" stroke="#3D322C" stroke-width="3" />
+    <path d="M 12,18 C -2,4, 22,-12, 65,-10 C 108,-8, 142,4, 137,20 C 132,35, 98,42, 60,39 C 22,37, 2,29, 12,18 Z" 
+          fill="#3B312A" />
+
+    <!-- Decorative Bowl with Fresh Lemons/Citrus -->
+    <g transform="translate(45, 6)">
+      <ellipse cx="14" cy="10" rx="16" ry="7" fill="#151311" />
+      <!-- Citrus fruits -->
+      <circle cx="8" cy="7" r="4.5" fill="#FFAF1A" stroke="#E69500" stroke-width="0.8" />
+      <circle cx="15" cy="6" r="4.8" fill="#FFC72C" stroke="#E69500" stroke-width="0.8" />
+      <circle cx="21" cy="8" r="4.2" fill="#FF9F00" stroke="#E69500" stroke-width="0.8" />
+      <circle cx="14" cy="11" r="3.8" fill="#FFD034" stroke="#E69500" stroke-width="0.8" />
+    </g>
+
+    <!-- Glass Bud Vase with Delicate Green Stems -->
+    <g transform="translate(85, 4)">
+      <!-- Glass Vase -->
+      <ellipse cx="5" cy="12" rx="4.5" ry="3" fill="#88B2A6" opacity="0.6" />
+      <rect x="3.5" y="4" width="3" height="8" fill="#B5D6CC" opacity="0.7" rx="1.5" />
+      <!-- Delicate Foliage Stem -->
+      <path d="M 5,4 Q 8,-6 14,-14" stroke="#4A754E" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      <path d="M 5,4 Q 2,-5 -2,-11" stroke="#4A754E" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      <circle cx="14" cy="-14" r="2.2" fill="#71A877" />
+      <circle cx="-2" cy="-11" r="1.8" fill="#71A877" />
+      <circle cx="9" cy="-8" r="1.5" fill="#71A877" />
+    </g>
+  </g>
+
+  <!-- 7. Ambient Warm Glow Overlay matching the clinic's architectural mood -->
+  <rect x="0" y="0" width="1200" height="900" fill="url(#coveStrip)" opacity="0.25" pointer-events="none" />
+</svg>

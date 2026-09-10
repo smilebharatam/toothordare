@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" class="w-full h-auto select-none" aria-label="Tooth or Dare Dental Clinic">
+  <defs>
+    <style>
+      .wm-brand { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 900; fill: #540D1B; }
+      .wm-gold { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #B88538; }
+      .wm-sub { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #B88538; font-size: 19px; }
+    </style>
+  </defs>
+
+  <!-- Row 1: Brand Title (Total Span: 95 to 585, Center Axis at X=340) -->
+  
+  <!-- Left: TOOTH (Span: 95 to 298) -->
+  <text x="95" y="58" class="wm-brand" font-size="48" letter-spacing="-0.02em">T</text>
+  
+  <!-- Infinity OO Loop -->
+  <path d="M 185 41 
+           C 166 23, 140 23, 140 41 
+           C 140 59, 166 59, 185 41 
+           C 204 23, 230 23, 230 41 
+           C 230 59, 204 59, 185 41 Z" 
+        fill="none" 
+        stroke="#540D1B" 
+        stroke-width="9.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+        
+  <!-- TH -->
+  <text x="242" y="58" class="wm-brand" font-size="48" letter-spacing="-0.01em">TH</text>
+
+  <!-- Center: OR badge (Span: 320 to 360, Center at X=340) -->
+  <!-- Gap between TOOTH and OR is exactly 22px -->
+  <g transform="translate(340, 26)">
+    <line x1="-20" y1="2" x2="20" y2="2" stroke="#B88538" stroke-width="2.6" stroke-linecap="round" />
+    <text x="0" y="24" class="wm-gold" font-size="21" text-anchor="middle" letter-spacing="0.04em">OR</text>
+    <line x1="-20" y1="36" x2="20" y2="36" stroke="#B88538" stroke-width="2.6" stroke-linecap="round" />
+  </g>
+
+  <!-- Right: DARE (Span: 382 to 585) -->
+  <!-- Gap between OR and DARE is exactly 22px -->
+  <g transform="translate(382, 0)">
+    <!-- Stencil D -->
+    <line x1="4" y1="22" x2="4" y2="58" stroke="#540D1B" stroke-width="8.5" stroke-linecap="square" />
+    <path d="M 10 22 C 34 22, 48 29, 48 40 C 48 51, 34 58, 10 58" stroke="#540D1B" stroke-width="8.5" stroke-linecap="round" fill="none" />
+    <!-- ARE with matching outer span -->
+    <text x="56" y="58" class="wm-brand" font-size="48" letter-spacing="0.14em">ARE</text>
+  </g>
+
+  <!-- Row 2: Symmetric Golden Rules & Centered Molar Outline (Center Axis at X=340) -->
+  <g transform="translate(340, 85)">
+    <!-- Left gold line from X=135 to X=315 -->
+    <line x1="-205" y1="0" x2="-25" y2="0" stroke="#B88538" stroke-width="2.2" stroke-linecap="round" />
+    
+    <!-- Central Molar Outline -->
+    <path d="M 0 -8 
+             C -6 -15, -14 -11, -14 2 
+             C -14 10, -10 16, -6 23 
+             C -4 27, -1 27, 0 20 
+             C 1 27, 4 27, 6 23 
+             C 10 16, 14 10, 14 2 
+             C 14 -11, 6 -15, 0 -8 Z" 
+          fill="none" 
+          stroke="#540D1B" 
+          stroke-width="2.5" 
+          stroke-linejoin="round" 
+          stroke-linecap="round" 
+          transform="scale(0.9) translate(0, -6)" />
+          
+    <!-- Right gold line from X=365 to X=545 -->
+    <line x1="25" y1="0" x2="205" y2="0" stroke="#B88538" stroke-width="2.2" stroke-linecap="round" />
+  </g>
+
+  <!-- Row 3: Subtitle spanning from X=50 to X=630 (Center Axis at X=340) -->
+  <text x="340" y="126" class="wm-sub" text-anchor="middle" textLength="580" lengthAdjust="spacing">DENTAL | AESTHETICS | RESTORATIVE | ENDODONTICS</text>
+</svg>
